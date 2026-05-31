@@ -11,3 +11,8 @@ Proyecto Maven base para ejercicios de Java.
 
 - Compilar: `mvn compile`
 
+## Para ejecutar usando docker
+
+- docker build -t taller-java .
+
+- docker run --rm taller-java
