@@ -1,7 +1,21 @@
 package com.example.tallerjava;
 
+/**
+ * Ejercicio 3 - Validacion de Arbol Binario de Busqueda (BST)
+ *
+ * Estrategia: validacion por rango de valores (min/max).
+ * Se recorre el arbol en profundidad pasando a cada nodo un rango
+ * (min, max) que su valor debe respetar. Al bajar por la izquierda
+ * el valor del nodo se convierte en el nuevo tope superior (max),
+ * y al bajar por la derecha se convierte en el nuevo piso inferior
+ * (min). Si algun nodo queda fuera del rango, no es BST. Esto
+ * garantiza que ningun descendiente viole la propiedad con
+ * ancestros lejanos, algo que no se logra verificando solo
+ * contra el padre directo.
+ */
+
 public class Ejercicio3 {
-    
+
      public static void main(String[] args) {
         System.out.println("Ejercicio 3");
         Node n4 = new Node(3,null,null);
@@ -86,5 +100,3 @@ class Node {
         return right;
     }
 }
-
-

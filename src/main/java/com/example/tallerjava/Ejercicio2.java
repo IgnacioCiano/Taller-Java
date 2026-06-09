@@ -47,9 +47,9 @@ public class Ejercicio2 {
     }
 
     // DATO:
-        // int: almacena hasta 32 bits - El mayor entero positivo es 2^31 - 1 = 2,147,483,647
-        // long: almacena hasta 64 bits - El mayor entero positivo es 2^63 - 1 = 9,223,372,036,854,775,807
+    // int: almacena hasta 32 bits - El mayor entero positivo es 2^31 - 1 = 2,147,483,647
+    // long: almacena hasta 64 bits - El mayor entero positivo es 2^63 - 1 = 9,223,372,036,854,775,807
 
-        // fibonacci de 100 excede ambos valores !
+    // fibonacci de 100 excede ambos valores !
 
 }

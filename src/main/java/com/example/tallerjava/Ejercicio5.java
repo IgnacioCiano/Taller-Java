@@ -2,31 +2,51 @@ package com.example.tallerjava;
 
 import java.util.*;
 
+/**
+ * Ejercicio 5 - Laberinto con portales (BFS)
+ *
+ * Estrategia:
+ * 1. Recorrer la matriz para ubicar la entrada 'E' y agrupar todos los portales
+ *    (letras minúsculas) en un mapa <carácter, lista de coordenadas>.
+ * 2. Aplicar BFS (búsqueda en anchura) usando una cola. Cada elemento de la cola
+ *    guarda {fila, columna, pasosAcumulados}.
+ * 3. Usar una matriz boolean visited[][] para no revisar la misma celda dos veces.
+ * 4. Al salir de una celda con portal (minúscula) que aún no se haya usado,
+ *    encolar TODAS las coordenadas de ese mismo portal (teletransportación)
+ *    y marcar ese carácter como usado para evitar loops infinitos.
+ * 5. En cada paso también explorar los 4 vecinos (arriba, abajo, izquierda, derecha)
+ *    si están dentro de los límites, no son pared '#', y no han sido visitados.
+ * 6. Si se alcanza 'S', devolver la distancia acumulada. Si la cola se vacía
+ *    sin encontrar 'S', devolver -1 (no hay camino).
+ */
 public class Ejercicio5 {
 
     public static void main(String[] args) {
         // Test 1: camino simple
         char[][] maze1 = {
             {'E', '.', '.'},
-            {'.', '#', '.'},
+            {'.', '.', '.'},
             {'.', '.', 'S'}
         };
         System.out.println("Test 1: " + minPasos(maze1)); // 4
 
         // Test 2: sin salida
         char[][] maze2 = {
-            {'E', '#'},
-            {'#', 'S'}
+            {'E', '#', '.'},
+            {'.', '#', '.'},
+            {'.', '#', 'S'}
         };
         System.out.println("Test 2: " + minPasos(maze2)); // -1
 
         // Test 3: con portales
         char[][] maze3 = {
-            {'E', '.', 'a'},
-            {'#', '#', '#'},
-            {'S', '.', 'a'}
+            {'S', '.', 'b','#','b'},
+            {'#', '#', '#','#','a'},
+            {'.', '.', 'E','#','#'},
+            {'c', '#', '#','.','c'},
+            {'#', 'a', '.','.','.'}
         };
-        System.out.println("Test 3: " + minPasos(maze3)); // 2 (E -> a -> teleport -> a -> S)
+        System.out.println("Test 3: " + minPasos(maze3)); // 13
     }
 
     public static int minPasos(char[][] maze) {
